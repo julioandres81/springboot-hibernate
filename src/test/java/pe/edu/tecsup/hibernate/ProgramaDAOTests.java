@@ -17,24 +17,26 @@ public class ProgramaDAOTests {
     @Autowired
     ProgramaDAO programaDAO;
 
-    @Test
+   @Test
     public void verifyList() {
 
         List<Programa> programas = programaDAO.list();
         for (Programa programa : programas) {
+            System.out.println("resultados");
             System.out.println(programa.getNombre());
+             System.out.println(programa.getId());
         }
         Assert.assertTrue(programas.size() > 0);
     }
 
-    @Test
+    // @Test
     public void verifyFind() {
         Programa programa = programaDAO.get(1l);
         System.out.println(programa.getNombre());
         Assert.assertTrue(programa.getId() == 1l);
     }
 
-    @Test
+    // @Test
     public void verifySave() {
 
         Programa programa = new Programa();
@@ -46,7 +48,7 @@ public class ProgramaDAOTests {
         Assert.assertTrue(programa.getId() != null);
     }
 
-    @Test
+    // @Test
     public void verifyUpdate() {
 
         // cambiar el código para validar
@@ -59,7 +61,7 @@ public class ProgramaDAOTests {
         Assert.assertTrue(programaDAO.get(1l).getCodigo().equals("999"));
     }
 
-    @Test
+    // @Test
     public void verifyDelete() {
 
         Programa programa = new Programa();
